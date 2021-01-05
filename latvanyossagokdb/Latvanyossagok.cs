@@ -31,7 +31,11 @@ namespace latvanyossagokdb
 
         public override string ToString()
         {
-            return id+"."+ nev + "--" + leiras + "--" +ar + "Ft " +varos_id;
+            if (ar==0)
+            {
+                return  nev + "--" + leiras + " Ingyenes";
+            }
+            return nev + "--" + leiras + "--" +ar + "Ft ";
         }
     }
 }
