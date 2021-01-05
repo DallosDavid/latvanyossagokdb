@@ -139,7 +139,7 @@ VALUES (@id,@nev,@lakossag)";
 
             if (textBox_latvany.Text == "" || textBox_lerias.Text == "")
             {
-                MessageBox.Show("2.Kérem adjon meg helyes adatokat!");
+                MessageBox.Show("2.Kérem adjon meg helyes adatokat! ");
                 MessageBox.Show("" + ar);
             }
             else
