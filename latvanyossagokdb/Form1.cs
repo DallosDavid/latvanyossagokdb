@@ -82,7 +82,7 @@ ORDER BY id
 
             if (textBox_nev.Text == "")
             {
-                MessageBox.Show("Kérem adjon meg nevet!");
+                MessageBox.Show("Kérem adjon meg nevet! ");
             }
             bool l= false;
             List<string> lnevek = new List<string>();
