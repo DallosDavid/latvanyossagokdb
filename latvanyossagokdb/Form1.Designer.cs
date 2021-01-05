@@ -38,6 +38,8 @@
             this.button_modositasi = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button_torlos_lat = new System.Windows.Forms.Button();
+            this.button_latvany_modos = new System.Windows.Forms.Button();
             this.textBox_lerias = new System.Windows.Forms.TextBox();
             this.label_lerias_latvany = new System.Windows.Forms.Label();
             this.label_nev_lat = new System.Windows.Forms.Label();
@@ -46,8 +48,6 @@
             this.label_latvany_ar = new System.Windows.Forms.Label();
             this.numericUpDown_ar = new System.Windows.Forms.NumericUpDown();
             this.textBox_latvany = new System.Windows.Forms.TextBox();
-            this.button_torlos_lat = new System.Windows.Forms.Button();
-            this.button_latvany_modos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_lakos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -167,6 +167,29 @@
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Látványosság";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // button_torlos_lat
+            // 
+            this.button_torlos_lat.Location = new System.Drawing.Point(443, 46);
+            this.button_torlos_lat.Name = "button_torlos_lat";
+            this.button_torlos_lat.Size = new System.Drawing.Size(51, 20);
+            this.button_torlos_lat.TabIndex = 8;
+            this.button_torlos_lat.Text = "Törlés";
+            this.button_torlos_lat.UseVisualStyleBackColor = true;
+            this.button_torlos_lat.Visible = false;
+            this.button_torlos_lat.Click += new System.EventHandler(this.button_torlos_lat_Click);
+            // 
+            // button_latvany_modos
+            // 
+            this.button_latvany_modos.Location = new System.Drawing.Point(415, 113);
+            this.button_latvany_modos.Name = "button_latvany_modos";
+            this.button_latvany_modos.Size = new System.Drawing.Size(115, 33);
+            this.button_latvany_modos.TabIndex = 9;
+            this.button_latvany_modos.Text = "Modositas";
+            this.button_latvany_modos.UseVisualStyleBackColor = true;
+            this.button_latvany_modos.Visible = false;
+            this.button_latvany_modos.Click += new System.EventHandler(this.button_latvany_modos_Click);
             // 
             // textBox_lerias
             // 
@@ -240,28 +263,6 @@
             this.textBox_latvany.Name = "textBox_latvany";
             this.textBox_latvany.Size = new System.Drawing.Size(142, 20);
             this.textBox_latvany.TabIndex = 3;
-            // 
-            // button_torlos_lat
-            // 
-            this.button_torlos_lat.Location = new System.Drawing.Point(443, 46);
-            this.button_torlos_lat.Name = "button_torlos_lat";
-            this.button_torlos_lat.Size = new System.Drawing.Size(51, 20);
-            this.button_torlos_lat.TabIndex = 8;
-            this.button_torlos_lat.Text = "Törlés";
-            this.button_torlos_lat.UseVisualStyleBackColor = true;
-            this.button_torlos_lat.Visible = false;
-            this.button_torlos_lat.Click += new System.EventHandler(this.button_torlos_lat_Click);
-            // 
-            // button_latvany_modos
-            // 
-            this.button_latvany_modos.Location = new System.Drawing.Point(415, 113);
-            this.button_latvany_modos.Name = "button_latvany_modos";
-            this.button_latvany_modos.Size = new System.Drawing.Size(115, 33);
-            this.button_latvany_modos.TabIndex = 9;
-            this.button_latvany_modos.Text = "Modositas";
-            this.button_latvany_modos.UseVisualStyleBackColor = true;
-            this.button_latvany_modos.Visible = false;
-            this.button_latvany_modos.Click += new System.EventHandler(this.button_latvany_modos_Click);
             // 
             // Form1
             // 

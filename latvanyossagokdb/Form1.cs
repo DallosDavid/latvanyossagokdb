@@ -30,10 +30,43 @@ namespace latvanyossagokdb
 
             };
             AdatBetoltes();
+            adatlere();
            
         }
-      
 
+        void adatlere()
+        {
+
+            var createvarosokComm = conn.CreateCommand();
+
+            createvarosokComm.CommandText = @"
+CREATE TABLE IF NOT EXISTS latvanyossagokdb.varosok(
+             id INT(10) NOT NULL AUTO_INCREMENT,
+             nev TEXT NOT NULL,
+             lakossag INT(10) NOT NULL,
+             PRIMARY KEY(`id`),
+             UNIQUE (nev)
+);
+";
+            createvarosokComm.ExecuteNonQuery();
+
+            var createlatvanyossagokComm = conn.CreateCommand();
+
+            createlatvanyossagokComm.CommandText = @"
+CREATE TABLE IF NOT EXISTS latvanyossagokdb.latvanyossagok (
+              id INT(10) NOT NULL AUTO_INCREMENT,
+              nev TEXT NOT NULL,
+              leiras TEXT NOT NULL,
+              ar INT(10) NOT NULL DEFAULT '0',
+              varos_id INT(10) NOT NULL,
+              PRIMARY KEY (id),
+              FOREIGN KEY (varos_id) REFERENCES varosok(id)
+);
+";
+            createlatvanyossagokComm.ExecuteNonQuery();
+
+
+        }
 
 
         void AdatBetoltes()
@@ -133,17 +166,38 @@ VALUES (@id,@nev,@lakossag)";
                 id = l.Id;
                 id++;
             }
-            var nev = textBox_latvany.Text;
+            string nev = textBox_latvany.Text;
             var ar = (int)numericUpDown_ar.Value;
-            var leiras = textBox_lerias.Text;
+            string leiras = textBox_lerias.Text;
 
-            if (textBox_latvany.Text == "" || textBox_lerias.Text == "")
+            if (textBox_latvany.Text == "" )
             {
-                MessageBox.Show("2.Kérem adjon meg helyes adatokat! ");
-                MessageBox.Show("" + ar);
+                MessageBox.Show("Kérem adjon meg a látványoság nevét" );
+               
             }
-            else
+
+            if(leiras.Length == 0)
             {
+                MessageBox.Show("Kérem adjon meg a látványoság leirását");
+            }
+            bool ll = false;
+            List<string> lnevek = new List<string>();
+            List<string> lleiras = new List<string>();
+            for (int i = 0; i < listBox_latvany.Items.Count; i++)
+            {
+                Latvanyossagok v = (Latvanyossagok)listBox_latvany.Items[i];
+                lnevek.Add(v.Nev);
+                lleiras.Add(v.Leiras);
+
+            }
+
+            if (lnevek.Contains(textBox_latvany.Text) && lleiras.Contains(textBox_lerias.Text))
+            {
+                MessageBox.Show("Van már ilyen látványoság fel véve.");
+                ll = true;
+            }
+
+           if(ll== false && leiras.Length != 0 && nev.Length != 0){
                 Varosok l = (Varosok)listBox1.SelectedItem;
                 int vid = l.Id;
                 
@@ -365,6 +419,11 @@ WHERE latvanyossagok.varos_id = @id";
         }
 
         private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
         {
 
         }
