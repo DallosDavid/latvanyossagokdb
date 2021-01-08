@@ -20,7 +20,7 @@ namespace latvanyossagokdb
         {
             InitializeComponent();
             conn = new MySqlConnection("Server = localhost; Database = latvanyossagokdb; Uid = root; Pwd = ");
-            conn.Open();
+            conn.Open(); 
             this.FormClosed += (sender, args) =>
             {
                 if (conn != null)
